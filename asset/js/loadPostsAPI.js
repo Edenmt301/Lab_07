@@ -72,6 +72,8 @@ function loadDataNew() {
       } , 200);
           
     })
+    
+      
     .catch(function(err) {
         console.log(err);
     });
