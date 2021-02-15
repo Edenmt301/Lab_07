@@ -19,15 +19,24 @@ async function load_fromPlaceHolder_new_images() {
 
 function loadDataNew() {    
     load_fromPlaceHolder_new_images().then(function (posts){
-        let output = '';
-      posts.forEach(function(post) {        
+        let output =''
+      let i=0
+      posts.forEach(function(post) { 
+          if (i===0){
+            output +=  `<div class="carousel-item active">
+            <img src="https://picsum.photos/id/0/5616/3744" height="40%" width="70%" class="d-block w-100" alt="...">
+          </div>`; 
+          i++
+          }   
+        else{    
         output +=  `
-        <div class="carousel-item">
+        <div class="carousel-item ">
             <img class="d-block w-100" src="${post.download_url}" alt="Third slide">
           </div>          `;  // same code as previous with few update
+        }
     });
     setTimeout(()=>{
-      postDiv4.innerHTML += output;
+      postDiv4.innerHTML = output;
       console.log(postDiv4.innerHTML)
 } , 200);
       
